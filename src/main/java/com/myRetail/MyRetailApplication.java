@@ -21,7 +21,7 @@ public class MyRetailApplication {
   @Bean
   public EmbeddedServletContainerCustomizer containerCustomizer() {
     return (container -> {
-      container.setSessionTimeout(1);  // session timeout value
+      container.setSessionTimeout(1);
     });
   }
 }

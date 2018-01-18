@@ -1,4 +1,4 @@
-package com.myRetail.Data;
+package com.myRetail.core.Domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

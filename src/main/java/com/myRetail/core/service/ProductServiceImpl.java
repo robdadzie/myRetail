@@ -1,10 +1,10 @@
-package com.myRetail.service;
+package com.myRetail.core.service;
 
-import com.myRetail.Dao.PriceDao;
-import com.myRetail.Data.Price;
-import com.myRetail.Data.Product;
-import com.myRetail.Data.ProductDetails;
-import com.myRetail.Data.ProductInfoWrapper;
+import com.myRetail.core.Dao.PriceDao;
+import com.myRetail.core.Domain.ProductPrice;
+import com.myRetail.core.Domain.Product;
+import com.myRetail.core.Domain.ProductDetails;
+import com.myRetail.core.Domain.ProductInfoWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     private String productUrl;
 
     @Override
-    public void saveOrUpdateProductPrice(String id, Price price){
+    public void saveOrUpdateProductPrice(String id, ProductPrice price){
      priceDao.saveOrUpdatePrice(id, price);
     }
 
@@ -36,8 +36,8 @@ public class ProductServiceImpl implements ProductService {
     public ProductDetails getProductDetails(String id){
         ProductDetails productDetails = new ProductDetails();
         try {
-            Product productInfo = getProductInformation(id);
-            Price priceInfo = getProductPrice(id);
+            Product      productInfo = getProductInformation(id);
+            ProductPrice priceInfo   = getProductPrice(id);
 
             if(productInfo != null) {
              productDetails = new ProductDetails(productInfo, priceInfo);
@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Price getProductPrice(String id){
+    public ProductPrice getProductPrice(String id){
         return priceDao.findPriceByProductId(id);
     }
 

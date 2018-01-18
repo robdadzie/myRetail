@@ -1,4 +1,4 @@
-package com.myRetail.Data;
+package com.myRetail.core.Domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,12 +9,12 @@ public class ProductDetails {
   String name;
 
   @JsonProperty(value = "current_price")
-  Price  price;
+  ProductPrice price;
 
   public ProductDetails() {
   }
 
-  public ProductDetails(Product product, Price price) {
+  public ProductDetails(Product product, ProductPrice price) {
     this.id = product.getItem().getItemId();
     this.name = product.getItem().getDescription().getTitle();
     this.price = price;
@@ -36,11 +36,11 @@ public class ProductDetails {
     this.name = name;
   }
 
-  public Price getPrice() {
+  public ProductPrice getPrice() {
     return price;
   }
 
-  public void setPrice(Price price) {
+  public void setPrice(ProductPrice price) {
     this.price = price;
   }
 

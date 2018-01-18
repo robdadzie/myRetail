@@ -1,4 +1,4 @@
-package com.myRetail.Data;
+package com.myRetail.core.Domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Currency;
 
-public class Price implements Serializable {
+public class ProductPrice implements Serializable{
+  static final long serialVersionUID = 2L;
+
   BigDecimal value;
 
   @JsonProperty(value = "currency_code")

@@ -2,13 +2,13 @@ package com.myRetail.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myRetail.Data.Item;
-import com.myRetail.Data.Price;
-import com.myRetail.Data.Product;
-import com.myRetail.Data.ProductDescription;
-import com.myRetail.Data.ProductDetails;
-import com.myRetail.Data.ProductInfoWrapper;
-import com.myRetail.service.ProductServiceImpl;
+import com.myRetail.core.Domain.Item;
+import com.myRetail.core.Domain.ProductPrice;
+import com.myRetail.core.Domain.Product;
+import com.myRetail.core.Domain.ProductDescription;
+import com.myRetail.core.Domain.ProductDetails;
+import com.myRetail.core.Domain.ProductInfoWrapper;
+import com.myRetail.core.service.ProductServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class ProductServiceTest {
   private ProductDescription pdtDesc;
   private Item               item;
   private Product            productInfo;
-  private Price              pdtPrice;
+  private ProductPrice       pdtPrice;
 
   @Before
   public void setup() {
@@ -56,7 +56,7 @@ public class ProductServiceTest {
     productInfo = new Product();
     productInfo.setItem(item);
 
-    pdtPrice = new Price();
+    pdtPrice = new ProductPrice();
     pdtPrice.setValue(new BigDecimal(5.0122));
     pdtPrice.setCurrencyCode(Currency.getInstance("USD"));
 
@@ -81,8 +81,8 @@ public class ProductServiceTest {
     Map<String, String> urlParams = new HashMap<>();
     urlParams.put("productId", item.getItemId());
 
-    RestTemplate          restTemplate = new RestTemplate();
-    MockRestServiceServer server       = MockRestServiceServer.bindTo(restTemplate).build();
+    RestTemplate restTemplate = new RestTemplate();
+    MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
 
     server.expect(manyTimes(), requestTo("https://foo.com/bar/11223344?query"))
           .andExpect(method(HttpMethod.GET))

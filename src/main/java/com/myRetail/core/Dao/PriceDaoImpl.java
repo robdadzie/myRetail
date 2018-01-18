@@ -1,6 +1,6 @@
-package com.myRetail.Dao;
+package com.myRetail.core.Dao;
 
-import com.myRetail.Data.Price;
+import com.myRetail.core.Domain.ProductPrice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -11,9 +11,9 @@ import javax.annotation.PostConstruct;
 @Repository
 @SuppressWarnings("unchecked")
 public class PriceDaoImpl implements PriceDao {
-    private static final String PRICE = "Price";
+    private static final String PRICE = "ProductPrice";
 
-    private RedisTemplate<String, Price> redisTemplate ;
+    private RedisTemplate<String, ProductPrice> redisTemplate ;
     private HashOperations hashOperations;
 
     @Autowired
@@ -27,12 +27,12 @@ public class PriceDaoImpl implements PriceDao {
     }
 
     @Override
-    public void saveOrUpdatePrice(String productId, Price price) {
+    public void saveOrUpdatePrice(String productId, ProductPrice price) {
         hashOperations.put(PRICE, productId, price);
     }
 
     @Override
-    public Price findPriceByProductId(String productId){
-        return (Price) hashOperations.get(PRICE, productId);
+    public ProductPrice findPriceByProductId(String productId){
+        return (ProductPrice) hashOperations.get(PRICE, productId);
     }
 }
