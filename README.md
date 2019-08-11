@@ -38,7 +38,7 @@ mvn test
 ## Fully functioning API with Swagger Documentation
 [myRetail RESTFul service](http://ec2-34-201-116-89.compute-1.amazonaws.com:8080)
 
-## Authors
+## Author
 
 * **Robert Dadzie**
 

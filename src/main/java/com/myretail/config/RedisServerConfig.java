@@ -1,4 +1,4 @@
-package com.myRetail.config;
+package com.myretail.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -29,4 +29,5 @@ public class RedisServerConfig {
     template.setConnectionFactory(jedisConnectionFactory());
     return template;
   }
+
 }

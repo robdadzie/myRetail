@@ -1,4 +1,4 @@
-package com.myRetail.config;
+package com.myretail.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
