@@ -36,7 +36,7 @@ mvn test
   java -jar myRetail-1.0.0-SNAPSHOT.jar
 
 ## Fully functioning API with Swagger Documentation
-[myRetail RESTFul service](http://ec2-34-201-116-89.compute-1.amazonaws.com:8080)
+[myRetail RESTFul service](http://54.210.21.128:8085)
 
 ## Author
 
